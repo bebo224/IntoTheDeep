@@ -2,11 +2,9 @@
 body {
 
   margin: 0;
-  min-height: 300vh;
+background-color: #011337;
   overflow-x: hidden;
  }
- 
-
 
 
 .depth {
@@ -27,14 +25,10 @@ body {
 }
 
 .section{
-  position: relative;
+    position: relative;
     height: 100vh; /* Full viewport height */
     width: 100%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center; /* Align items to the bottom */
     text-align: center;
     background-image: radial-gradient(circle, #ffffff, #f3f7ff, #ddf1ff, #c0edff, #9deaff);
  
@@ -44,8 +38,7 @@ body {
   font-size: 96px;
   position: relative;
   font-weight: 400;
-  text-align: center;
-  top: 40px;
+  margin-top: 50px;
   margin: 0;
   z-index: 10;
   
@@ -55,14 +48,19 @@ body {
   font-family: "Quicksand", sans-serif;
   font-weight: 400;
   font-size: 36;
+  top: 50px;
   position: relative;
   margin: 0;
   z-index: 10;
-
-
-
 }
 
+.image-container {
+  justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Align items to the bottom */
+    display: flex;
+
+}
 .iceberg {
   position: absolute;
   bottom: 100px; /* Start at the bottom */
@@ -213,3 +211,48 @@ body {
   }
 }
 
+.section3 {
+  background-color: #011337;
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.section3 h2 {
+  margin: 0;
+  text-align: center;
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 244;
+  font-style: normal;
+  font-size: 64px;
+  margin-top: 60px;
+
+}
+
+.section3 p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 100;
+  font-size: 24px;
+
+}
+.kp {
+  display: flex;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.dive_equipment {
+  position: relative;
+  display: flex;
+
+}
+
+#tank {
+  width: 100px;
+  height: 100%;
+}
+
+#flap {
+  width: 180px;
+  height: 100%;
+}
