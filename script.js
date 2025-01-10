@@ -1,14 +1,13 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Select all elements
+
 const translate = document.querySelectorAll(".translate");
 const title = document.querySelector(".title");
 const subtitle = document.querySelector(".subtitle");
 const section = document.querySelector("#first-section");
 const paperOverlay = document.querySelector(".paperOverlay");
 
-// Parallax Effect for the translate elements
 translate.forEach((element) => {
     const speed = element.dataset.speed;
 
@@ -27,17 +26,18 @@ translate.forEach((element) => {
             start: "top top",
             end: "bottom top",
             scrub: true,
+            markers: false,
         },
     });
 });
 
-// Title and Subtitle movement
 gsap.to(title, {
     yPercent: -150,
     scrollTrigger: {
         trigger: section,
         start: "top top",
         end: "bottom top",
+        markers: false,
         scrub: true,
     },
 });
@@ -48,17 +48,19 @@ gsap.to(subtitle, {
         trigger: section,
         start: "top top",
         end: "bottom top",
+        markers: false,
         scrub: true,
     },
 });
 
-// Section pinning
+
 gsap.to(section, {
     scrollTrigger: {
         trigger: section,
         pin: true,
         start: "top top",
         end: "bottom top",
+        markers: false,
         scrub: true,
     },
 });
@@ -71,12 +73,11 @@ function updateDepth() {
     const scrollY = window.scrollY;
 
     if (scrollY >= secondSectionTop) {
-        // Calculate depth based on scroll position relative to the second section
         const depth = Math.max(0, Math.floor((scrollY - secondSectionTop) / 40));
         depthDisplay.textContent = `Depth: ${depth}m`;
-        depthDisplay.style.opacity = '1'; // Show depth display
+        depthDisplay.style.opacity = '1'; 
     } else {
-        depthDisplay.style.opacity = '0'; // Hide depth display before second section
+        depthDisplay.style.opacity = '0'; 
     }
 }
 
@@ -90,37 +91,36 @@ window.addEventListener('scroll', updateDepth);
 
 
 
-gsap.registerPlugin(ScrollTrigger);
 
 const fadeElements = gsap.utils.toArray('.s1, .s2, .s3, .s4');
 
 gsap.to(".section3", {
     scrollTrigger: {
         trigger: ".section3",
-        start: "top top", // When the section hits the top of the viewport
-        end: () => `+=${fadeElements.length * 200}`, // Pin until all elements have been faded in (based on number of elements)
-        pin: true, // Pin the section
-        scrub: true, // Smooth scrolling
-        markers: false, // Turn off markers
+        start: "top top", 
+        end: () => `+=${fadeElements.length * 200}`,
+        pin: true, 
+        scrub: true,
+        markers: false,
     }
 });
 
 fadeElements.forEach((element, index) => {
     gsap.fromTo(element, {
-        opacity: 0, // Start with invisible
+        opacity: 0, 
     }, {
-        opacity: 1, // Fade to visible
-        duration: 0.5, // Duration of fade-in
+        opacity: 1, 
+        duration: 0.5, 
         scrollTrigger: {
-            trigger: element, // Trigger the animation when the element enters the viewport
-            start: ".section3", // Start fading in when the element enters 80% of the viewport height
+            trigger: element, 
+            start: ".section3", 
             scrub: true,
-            toggleActions: "play none none reverse", // Play when entering the viewport, reverse when scrolling out
-            markers: false, // Remove markers for production
+            markers: false,
+            toggleActions: "play none none reverse", 
             onEnter: () => {
-                // When each element enters the viewport, prevent scrolling further if it's not the last one
+               
                 if (index === fadeElements.length - 1) {
-                    // Last element fade in, allow scroll down
+                    
                     ScrollTrigger.getAll().forEach(trigger => trigger.refresh());
                 }
             }
@@ -133,61 +133,59 @@ fadeElements.forEach((element, index) => {
 
 
 
-gsap.registerPlugin(ScrollTrigger);
 
 
 
-// Create a timeline for the animations
+
 const fishTimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: ".fish-container", // The section to trigger animations     
-    start: "top 20%", // Start when the section hits the top of the viewport
-    end: "+=1000", // Extend the scrollable area
-    pin: ".section4", // Pin the section while animations play
-    scrub: 1, // Smooth scrubbing
-    markers: true, // Debug markers (remove in production)
+    trigger: ".fish-container", 
+    start: "top 20%", 
+    end: "+=1000", 
+    pin: ".section4", 
+    scrub: 1, 
+    markers: false,
   },
 });
 
-// Animate the head moving right
+
 fishTimeline.to(".head", {
-  x: 500, // Move right
+  x: 500, 
   duration:2,
 });
 
-// Animate the tail moving left
-fishTimeline.to(".tail", {
-  x: -500, // Move left
-  duration: 2,
-}, "<"); // "<" means start this animation at the same time as the previous one
 
-// Fade in the dead fish after head and tail animations
+fishTimeline.to(".tail", {
+  x: -500, 
+  duration: 2,
+}, "<"); 
+
+
 fishTimeline.to(".dead-fish", {
-    opacity: 1, // Fade in after the head and tail start moving
-    duration: 1, // Fade in duration
+    opacity: 1, 
+    duration: 1, 
 }, "<");
 
 
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 gsap.fromTo(
     ".f11 span",
-    { opacity: 0, y: 20 }, // Initial state: invisible and offset
+    { opacity: 0, y: 20 }, 
     {
         opacity: 1,
-        y: 0, // Final state: fully visible and in position
-        duration: 1.5, // Duration of each animation
-        
+        y: 0, 
+        duration: 1.5, 
         stagger: {
-            each: 0.1, // Stagger each line's animation slightly
+            each: 0.1, 
         },
         scrollTrigger: {
-            trigger: ".section5", // Start animation when .f1 enters the viewport
-            start: "top top", // Begin animation when .f1 is near the viewport
-            end: "+=100%", // Keep pinned while the animation plays
-
-            scrub: true, // Bind animation progress to scroll progress
+            trigger: ".section5", 
+            start: "top top", 
+            end: "+=100%", 
+            markers: false,
+            scrub: true, 
         
         },
     }
@@ -196,7 +194,7 @@ gsap.fromTo(
 
 
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 
 function setInitialBurgerPositions() {
@@ -215,13 +213,14 @@ function animateBurgerOnScroll() {
       trigger: ".section5", 
       start: "top top", 
       pin: ".section5", 
+      markers: false,
       scrub: true, 
 
     },
   });
 }
 
-// Funktionen beim Laden der Seite aufrufen
+
 document.addEventListener("DOMContentLoaded", function () {
   setInitialBurgerPositions();
   animateBurgerOnScroll();

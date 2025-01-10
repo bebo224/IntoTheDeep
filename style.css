@@ -28,9 +28,9 @@ body {
 
 
 
-@media (width > 350px) {
+@media (min-width: 350px) {
   .depth {
-    position: sticky;
+
     mix-blend-mode: difference;
   }
 }
@@ -40,17 +40,17 @@ body {
 }
 
 
-.depth {
+#depthDisplay {
   color: white;
   font-family: "Inter", serif;
+  display: block;
   font-weight: 200;
   font-size: 15pt;
   position: fixed;
   left: 20px;
   top: 20px;
-  z-index: 5000;
+  z-index:6000;
   opacity: 1; /* Initially hidden */
-  transition: opacity 0.5s ease, transform 0.3s ease; /* Smooth fade-in/out */
 }
 
 
@@ -683,9 +683,9 @@ top: -140px;
 
 .fish-container {
   position: relative;
-  width: 700px; /* Adjust width based on the size of your images */
-  height: 300px; /* Adjust height to fit the fish */
-  margin: 0 auto; /* Center container horizontally */
+  width: 700px; 
+  height: 300px;
+  margin: 0 auto;
   top: 15%;
 }
 
@@ -701,10 +701,10 @@ top: -140px;
 
 .head {
   position: absolute;
-  width: 380px; /* Adjust size for the head */
-  top: 5px; /* Align with the top of the dead fish */
-  right: 35px; /* Slight overlap for seamless connection */
-  z-index: 2; /* Place it above the dead fish */
+  width: 380px; 
+  top: 5px; 
+  right: 35px; 
+  z-index: 2; 
 }
 
 .tail {
@@ -805,6 +805,7 @@ width: 350px;
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 height: 100vh;
 background-color: #D0D1CB;
 overflow: hidden;
@@ -815,7 +816,7 @@ overflow: hidden;
   position: absolute;
   right: 0%;
   width: 1000px;
-  bottom: 0;
+  bottom: -100px;
 }
 
   
@@ -826,7 +827,7 @@ overflow: hidden;
   right: 100px;
   width: 500px;
   height: 300px;
-  bottom: 330px;
+  bottom: 230px;
   z-index: 1000;
 }
 
@@ -868,39 +869,42 @@ top: 0;
 .section5 p {
   font-family: "inter", serif;
   font-weight:200;
-  font-size: 12pt;
+  font-size: 10pt;
   color:rgb(55, 55, 55);
-  line-height: 22px;
 }
 
 .section5 p b {
-  font-size: 17pt;
+  font-size: 14pt;
   color: rgb(158, 19, 19);
   font-weight: 500;
 }
 .WeEatPlastic {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  top: 10%;
-  width: 1000px;
-  height: 500px;
+  top: 30px;
+  left: 20px;
+  width: 100%;
+  height: 300px;
 }
 
 .p1 {
-  width: 200px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  width: 220px;
 }
 
 .p2{
-
-
-  width: 200px;
+  position: absolute;
+  top: 160px;
+  left: 120px;
+  width: 350px;
 
 }
 .p3{
-
-  width: 200px;
+  position: absolute;
+  left: 40px;
+  top: 370px;
+  width: 290px;
 
 }
 
@@ -919,59 +923,117 @@ top: 0;
 
 .b1 {
   position: absolute;
+  text-align: right;
   left: 5%;
   bottom: 180px;
   width: 200px;
   height: 200px;
 }
 
-@media (max-width: 1026px){
-  .WeEatPlastic {
-    width: 800px;
 
-  }
+
+@media  (max-width: 1246px ) {
+  
+  .WeEatPlastic {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    display: flex;
+    flex-direction: row; /* Ordnet die Elemente horizontal an */
+    justify-content: center; /* Zentriert die Elemente horizontal */
+    gap: 20px; /* Fügt Abstand zwischen den Elementen hinzu */
+    flex-wrap: wrap; /* Lässt die Elemente umbrechen, falls sie nicht in eine Zeile passen */
+    padding: 20px; /* Optional: Abstand um den Container */
+}
+
+.WeEatPlastic .p1,
+.WeEatPlastic .p2,
+.WeEatPlastic .p3 {
+    position: static;
+    flex: 1 1 auto; /* Elemente passen sich flexibel an */
+    max-width: 250px; /* Optionale Begrenzung der Breite */
+    min-height: 200px; /* Gleiche Mindesthöhe für alle Divs */
+
+}
+.dinnerTable{
+  bottom: -130px;
+} 
+
+.dinner {
+bottom: 210px;
+right: 150px;
 }
 
 
-@media  (max-width: 1200px ) {
+
+}
+
+@media (max-width:790px) {
   .dinnerTable {
-    width: 700px;
+    bottom: -100px;
+    width: 800px;
   }
   .dinner {
-    right: 10%;
-    width: 300px;
-    height: 100px;
-    bottom: 210px;
+    bottom: 150px;
+    right: 0;
   }
   .burger {
-    left: 70px;
-    bottom: 0;
-    height: 200px;
-    width: 150px;
+    width: 200px;
+    top: 80px;
+  }
+  .top {
+  top: 0;
   }
   .middle {
     top: 17px;
   }
   .bottom {
-    top: 48px;
+    top: 50px;
   }
-  .plate {
-    bottom: 45px;
-  }
-  .plate img{
-    width: 300px;
-  }
+  .plate img {
+  width: 350px;
   }
 
-  @media (max-width:536px) {
-.dinner {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  bottom: 210px;
-  left: auto;
-  right: auto;
+
 }
+
+
+  @media (max-width:536px) {
+
+    .dinnerTable{
+      bottom: -50px;
+      width: 500px;
+    } 
+
+.dinner {
+  bottom: 80px;
+  right: 0;
+  width: 250px;
+}
+
+.burger {
+
+  bottom: -110px;
+  height: 300px;
+  width: 150px;
+
+}
+.top {
+top: 0;
+}
+.middle {
+  top: 17px;
+}
+.bottom {
+  top: 50px;
+}
+
+.plate img {
+width: 300px;
+}
+
+
+
 .section5 p {
   font-family: "inter", serif;
   font-weight:200;
@@ -986,26 +1048,38 @@ top: 0;
 
 .WeEatPlastic {
   position: absolute;
-  top: 5%;
-  height: 200px;
-  width: 300px;
-flex-direction: column;
-
-}
-.p1 , .p2, .p3 {
-width: 100%;
-height: 140px;
+  display: flex;
+  justify-content: center;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 300px;
 }
 
-.b1 {
-  left: -50%;
+.p1 {
+  
+  width: 220px;
 }
+
+.p2{
+
+  width: 350px;
+  transform: translateY(-100px);
+
+}
+.p3{
+
+  width: 290px;
+  transform: translateY(-120px);
+}
+
+
  }
 
 .transicion3 {
   position: absolute;
   width: 2000px;
-  bottom: -5%;
+  bottom: -100px
 
 }
 
