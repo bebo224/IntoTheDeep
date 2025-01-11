@@ -1181,9 +1181,9 @@ left: -130px;
 
 .transicion {
   position: absolute;
-  width: 1500px;
+  width: 1900px;
   height: auto;
   object-fit: cover;
-  bottom: -10px;
+  bottom: -120px;
 
 } 
