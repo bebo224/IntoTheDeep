@@ -70,27 +70,31 @@ function updateDepth() {
     const depthDisplay = document.getElementById('depthDisplay');
     const secondSection = document.querySelector('#second-section');
     const secondSectionTop = secondSection.offsetTop;
-    const scrollY = window.scrollY;
-
+    const scrollY = window.scrollY; 
+  
     if (scrollY >= secondSectionTop) {
-        const depth = Math.max(0, Math.floor((scrollY - secondSectionTop) / 40));
-        depthDisplay.textContent = `Depth: ${depth}m`;
-        depthDisplay.style.opacity = '1'; 
+      const depth = Math.max(0, Math.floor((scrollY - secondSectionTop) / 25)); 
+      const pinnedSections = ScrollTrigger.getAll().filter(trigger => trigger.isActive);
+      if (pinnedSections.length === 0) {
+        depthDisplay.textContent = `Depth: ${depth}m`; 
+      }
+  
+      gsap.to(depthDisplay, {
+        opacity: 1,
+        duration: 0.3, 
+      });
     } else {
-        depthDisplay.style.opacity = '0'; 
+
+      gsap.to(depthDisplay, {
+        opacity: 0,
+        duration: 0.3, 
+      });
     }
-}
-
-window.addEventListener('scroll', updateDepth);
-
-
-
-
-
-
-
-
-
+  }
+  window.addEventListener('scroll', updateDepth);
+  
+  updateDepth();
+  
 
 const fadeElements = gsap.utils.toArray('.s1, .s2, .s3, .s4');
 
@@ -219,9 +223,29 @@ function animateBurgerOnScroll() {
     },
   });
 }
-
-
 document.addEventListener("DOMContentLoaded", function () {
   setInitialBurgerPositions();
   animateBurgerOnScroll();
+});
+
+
+
+
+
+gsap.config({ trialWarn: false });
+console.clear();
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".f1 h2 span").forEach((span, index) => {
+  gsap.to(span, {
+    backgroundPositionX: "0%", 
+    ease: "none", 
+    scrollTrigger: {
+      trigger: span, 
+      scrub: 0.5, 
+      start: "top center",  
+      end: "bottom center", 
+      delay: index * 0.1, 
+    }
+  });
 });

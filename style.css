@@ -6,10 +6,19 @@ body {
   margin: 0;
   background-color: white;
   overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: visible; /* Allow vertical overflow */
+    overflow-y: auto; /* Allow vertical overflow */
  }
 
 
+ .section{
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  background-image: radial-gradient(circle, #ffffff, #f3f7ff, #ddf1ff, #c0edff, #9deaff);
+
+}
  
 .paperOverlay {
   position: absolute;
@@ -26,20 +35,6 @@ body {
 
 
 
-
-
-@media (min-width: 350px) {
-  .depth {
-
-    mix-blend-mode: difference;
-  }
-}
-
-.depth p {
-  transition: all 0.3s ease; /* Smooth transition for depth changes */
-}
-
-
 #depthDisplay {
   color: white;
   font-family: "Inter", serif;
@@ -49,8 +44,10 @@ body {
   position: fixed;
   left: 20px;
   top: 20px;
-  z-index:6000;
-  opacity: 1; /* Initially hidden */
+  z-index:9999;
+  opacity: 0; 
+  transition: all 0.3s ease; 
+  mix-blend-mode: difference;
 }
 
 
@@ -76,41 +73,31 @@ body {
   width: 100%;
 }
 
-@media (max-width:536px) {
+@media (max-width:768px) {
   .title {
     font-size: 50pt;
-   top: 25%;
+   top: 250px;
   } 
   .subtitle {
-    top: 48%;
+    top: 400px;
   }
   
 }
 
-
 @media (min-width: 768px) {
   .title {
       font-size: 110px;
-      top: 25%;  /* Move closer to the top */
+      top: 300px;  /* Move closer to the top */
   }
 
   .subtitle {
       font-size: 20px;
       text-align: center;
-      top: 60%;  /* Move closer to the title */
+      top: 450px;  /* Move closer to the title */
 
   }
 }
 
-.section{
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-    background-image: radial-gradient(circle, #ffffff, #f3f7ff, #ddf1ff, #c0edff, #9deaff);
- 
- }
  .ice11, .ice12 {
   width: 1100px; /* Set a specific width */
   height: auto; /* Maintain the aspect ratio */
@@ -128,6 +115,12 @@ body {
   right: 0;
 }
 
+@media (max-width:768px) {
+    .ice11, .ice12 {
+      bottom: 100px;
+      
+  }
+}
 
 @media (min-width: 768px) {
   .ice11, .ice12 {
@@ -605,8 +598,8 @@ color: #DBF227;
 
   .coral {
     width: 200px;
-    right: -10%;
-    bottom: -5%;
+    right: -50px;
+    bottom: -50px;
   }
 
   .coral1 {
@@ -617,13 +610,14 @@ color: #DBF227;
   display: flex;
   margin: 0;
   left: auto;
-  top: 7%;
+  top: 50px;
   width: 250px;
  }
   .wrapper {
     flex-direction: row;
     width: 150px;
-    top: 80%;
+    top: auto;
+    bottom: 100px;
     justify-content: center;
     display: flex;
     right: auto;
@@ -709,17 +703,17 @@ top: -140px;
 
 .tail {
   position: absolute;
-  width: 600px; /* Adjust size for the tail */
-  top: 0; /* Align with the top of the dead fish */
-  left: 45px; /* Slight overlap for seamless connection */
-  z-index: 2; /* Place it above the dead fish */
+  width: 600px;
+  top: 0; 
+  left: 45px; 
+  z-index: 2; 
 
 }
 
 .wrapperA {
   position: absolute;
   display: flex;
-  top: 50%;
+  top: 550px;
   height: 500px;
   width: 500px;
 }
@@ -776,7 +770,7 @@ top: -140px;
 }
 
 .wrapperA {
-  top: 40%;
+  top: 450px;
 width: 350px;
 }
 .a2 {
@@ -869,7 +863,8 @@ top: 0;
 .section5 p {
   font-family: "inter", serif;
   font-weight:200;
-  font-size: 10pt;
+  font-size: 13pt;
+  word-spacing: 1px;
   color:rgb(55, 55, 55);
 }
 
@@ -880,8 +875,6 @@ top: 0;
 }
 .WeEatPlastic {
   position: absolute;
-  top: 30px;
-  left: 20px;
   width: 100%;
   height: 300px;
 }
@@ -895,7 +888,7 @@ top: 0;
 
 .p2{
   position: absolute;
-  top: 160px;
+  top: 180px;
   left: 120px;
   width: 350px;
 
@@ -932,43 +925,7 @@ top: 0;
 
 
 
-@media  (max-width: 1246px ) {
-  
-  .WeEatPlastic {
-    position: absolute;
-    top: 10%;
-    left: 0;
-    display: flex;
-    flex-direction: row; /* Ordnet die Elemente horizontal an */
-    justify-content: center; /* Zentriert die Elemente horizontal */
-    gap: 20px; /* Fügt Abstand zwischen den Elementen hinzu */
-    flex-wrap: wrap; /* Lässt die Elemente umbrechen, falls sie nicht in eine Zeile passen */
-    padding: 20px; /* Optional: Abstand um den Container */
-}
-
-.WeEatPlastic .p1,
-.WeEatPlastic .p2,
-.WeEatPlastic .p3 {
-    position: static;
-    flex: 1 1 auto; /* Elemente passen sich flexibel an */
-    max-width: 250px; /* Optionale Begrenzung der Breite */
-    min-height: 200px; /* Gleiche Mindesthöhe für alle Divs */
-
-}
-.dinnerTable{
-  bottom: -130px;
-} 
-
-.dinner {
-bottom: 210px;
-right: 150px;
-}
-
-
-
-}
-
-@media (max-width:790px) {
+@media (min-width:790px) { 
   .dinnerTable {
     bottom: -100px;
     width: 800px;
@@ -994,16 +951,37 @@ right: 150px;
   width: 350px;
   }
 
+  .WeEatPlastic{
+    left: 250px;
+    top: 60px;
+  }
+
+
 
 }
 
+@media (max-width:1060px) { 
+  .dinnerTable {
+    width: 700px;
+  }
 
-  @media (max-width:536px) {
+  .dinner{
+    right: -100px;
+    bottom: 110px;
+  }
+.WeEatPlastic {
+  left: 100px;
+  top: 60px;
+}
 
-    .dinnerTable{
-      bottom: -50px;
-      width: 500px;
-    } 
+  }
+
+@media (max-width:790px) {
+
+.dinnerTable{
+  bottom: -50px;
+  width: 500px;
+} 
 
 .dinner {
   bottom: 80px;
@@ -1012,7 +990,7 @@ right: 150px;
 }
 
 .burger {
-
+  top: auto;
   bottom: -110px;
   height: 300px;
   width: 150px;
@@ -1032,49 +1010,35 @@ top: 0;
 width: 300px;
 }
 
-
-
 .section5 p {
-  font-family: "inter", serif;
-  font-weight:200;
-  font-size: 10pt;
-  line-height: 20px;
+  font-size: 13pt;
 }
 
 .section5 p b {
   font-size: 13pt;
   font-weight: 500;
 }
-
-.WeEatPlastic {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  height: 300px;
-}
-
 .p1 {
-  
-  width: 220px;
+  left: 20px;
+  top: 50px;
 }
 
-.p2{
-
-  width: 350px;
-  transform: translateY(-100px);
-
+.p2 {
+  left: 20px;
+  top: 190px;
 }
-.p3{
-
-  width: 290px;
-  transform: translateY(-120px);
+.p3 {
+  left: 20px;
+  top: 370px;
 }
-
-
+.WeEatPlastic {
+  left: 30px;
+  top: 30px;
+}
  }
+
+
+
 
 .transicion3 {
   position: absolute;
@@ -1091,6 +1055,7 @@ width: 300px;
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
   height: 150vh;
   background-image: linear-gradient(to bottom, #011337, #02112f, #020e28, #020c20, #000819);;
@@ -1136,31 +1101,89 @@ width: 300px;
   }
 }
 
-.transicion {
-  position: absolute;
-  width: 1500px;
-  height: auto;
-  object-fit: cover;
-  bottom: -10%;
 
-} 
+
+.f0{
+  position: absolute;
+  font-family: "inter", serif;
+  font-weight:200;
+  font-size: 13pt;
+  color: white;
+  width: 300px;
+  top: 80px;
+
+}
+
 
 .f1 {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 0;
-  width: 800px;
+  top: 350px;
+  max-width: 80%;
 }
 
-.f11 span {
-      display: block; 
-    opacity: 0; 
-    transform: translateY(20px); 
-    transition: opacity 0.3s, transform 0.3s;
-    color: #DBF227;
+.f1 h2 span {
+
     font-family: "inter", serif;
-    font-weight:500;
-    font-size: 50pt;
+    font-weight:600;
+    font-size: clamp(30pt, 5vw, 100pt);
+    background: linear-gradient(to right, #DBF227 50%, #3e450d 50%); 
+    background-size: 200% 100%; 
+    background-position: 100% 0; 
+    color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text; 
 
 }
+
+.Cwrap {
+  position: absolute;
+  max-width: 80%;
+  top: 400px;
+height: auto;
+z-index: 100;
+
+}
+
+.c1, .c2, .c3, .c4{
+  position: absolute;
+  font-family: "inter", serif;
+  font-weight:200;
+  font-size: 13pt;
+  color: white;
+}
+.c1, .c2, .c3, .c4, p mark{
+  mark {background: #DBF227!important}
+  mark {color: black;}
+}
+.c1{
+  top: 290px ;
+  width: 210px;
+  left: -100px;
+}
+.c2{
+  top: 410px;
+  width: 220px;
+  left: -60px;
+}
+.c3{
+top: 490px;
+width: 180px;
+left: -130px;
+}
+
+.c4 {
+  top: 620px;
+  width: 280px;
+  left: -110px;
+}
+
+.transicion {
+  position: absolute;
+  width: 1500px;
+  height: auto;
+  object-fit: cover;
+  bottom: -10px;
+
+} 
