@@ -648,6 +648,11 @@ color: #DBF227;
   justify-content: center;
 }
 
+.section4 p{
+  font-weight: 100;
+font-size: 12pt;
+}
+
 .transicion1{
 position: absolute;
 width: 2000px;
@@ -661,8 +666,8 @@ top: -140px;
 .section4 p {
 
   font-family: "inter", serif;
-  font-weight: 200;
-  font-size: 13pt;
+  font-weight: 100;
+  font-size: 12pt;
   word-spacing: 1px;
   color:black;
   text-align:left;
@@ -720,22 +725,22 @@ top: -140px;
 
 .a1 {
   position: absolute;
-  left: 20%;
+  left: 5%;
 }
 .a2 {
   position: absolute;
-  left: 10%;
+  left: 15%;
   top: 15%;
 }
 .a3 {
   position: absolute;
-  left: 50%;
+  left: 35%;
   top:25%;
 }
 
 .a4 {
   position: absolute;
-  left: 30%;
+  left: 10%;
   top:40%;
 }
 
@@ -774,7 +779,7 @@ top: -140px;
 width: 350px;
 }
 .a2 {
-  top: 25%;
+  top: 20%;
 }
 .a3 {
   top: 34%;
@@ -862,8 +867,8 @@ top: 0;
 
 .section5 p {
   font-family: "inter", serif;
-  font-weight:200;
-  font-size: 13pt;
+  font-weight:100;
+  font-size: 12pt;
   word-spacing: 1px;
   color:rgb(55, 55, 55);
 }
